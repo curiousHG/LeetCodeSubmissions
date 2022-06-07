@@ -8,6 +8,9 @@ public:
             }else{
                 return false;
             }
+            if(curmax == n-1){
+                return true;
+            }
         }
         return true;
     }
