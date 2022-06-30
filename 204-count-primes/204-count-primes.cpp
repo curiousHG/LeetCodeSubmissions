@@ -4,7 +4,7 @@ public:
         vector<bool> p(n+1,true);
         p[0] = false;
         p[1] = false;
-        for(int i = 2;i<n;i++){
+        for(int i = 2;i<=sqrt(n);i++){
             if(!p[i])continue;
             int j = 2;
             while(j*i<=n){
