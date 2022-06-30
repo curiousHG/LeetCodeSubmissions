@@ -12,6 +12,7 @@ public:
             for(int j = 0;j<sq.size();j++){
                 if(sq[j]>i)break;
                 mini = min(mini, dp[i-sq[j]]+1);
+                if(mini==1)break;
                 
             }
             dp[i] = mini;
