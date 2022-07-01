@@ -1,10 +1,17 @@
 class Solution {
 public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        for(int i = 0;i<matrix.size();i++){
-            if(binary_search(matrix[i].begin(),matrix[i].end(),target))return true;
+    bool searchMatrix(vector<vector<int>>& matrix, int target){
+        int row = 0,col = matrix[0].size()-1;
+        while(row<matrix.size()&&col>=0){
+            if(matrix[row][col]==target){
+                return true;
+            }else if(matrix[row][col]>target){
+                col--;
+            }else{
+                row++;
+            }
+            // cout<<row<<" "<<col<<endl;
         }
         return false;
     }
-    
 };
