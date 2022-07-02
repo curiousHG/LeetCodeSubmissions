@@ -6,7 +6,7 @@ public:
         solve(a,0,1,k,n);
         return ans;
     }
-    void solve(vector<int> temp,int i,int j,int k,int n){
+    void solve(vector<int> &temp,int i,int j,int k,int n){
         if(i==k){
             ans.push_back(temp);
             return;
