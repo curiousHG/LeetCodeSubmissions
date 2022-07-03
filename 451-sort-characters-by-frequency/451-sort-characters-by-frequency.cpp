@@ -14,7 +14,7 @@ public:
         // sort(d.begin().d.end(),[&](pair<int,char> a, pair<int,char> b){
         //     a.first>b.first;
         // });
-        sort(d.begin(),d.end(),[&](pair<int,char> &a, pair<int,char> &b){
+        sort(d.begin(),d.end(),[](pair<int,char> a, pair<int,char> b){
             return a.first>b.first;
         });
         for(int i = 0;i<d.size();i++){
