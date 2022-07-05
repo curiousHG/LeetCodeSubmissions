@@ -1,9 +1,5 @@
-class Solution(object):
-    def plusOne(self, digits):
-        """
-        :type digits: List[int]
-        :rtype: List[int]
-        """
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
         n = len(digits)
         i = n-1
         carry = False
@@ -18,4 +14,4 @@ class Solution(object):
         if(carry):
             digits.insert(0,1)
         return digits
-        
+    
