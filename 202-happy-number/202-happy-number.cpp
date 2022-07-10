@@ -4,11 +4,11 @@ public:
         unordered_set<int> s;
         while(n!=1 && s.find(n)==s.end()){
             s.insert(n);
-            string temp = to_string(n);
             int val = 0,k;
-            for(int i = 0;i<temp.length();i++){
-                k = temp[i]-'0';
+            while(n){
+                k = n%10;
                 val+=k*k;
+                n = n/10;
             }
             n = val;
             
