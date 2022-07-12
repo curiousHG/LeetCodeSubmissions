@@ -31,8 +31,8 @@ public:
         }else{
             return;
         }
-        for(int i = 0;i<root->children.size();i++){
-            solve(root->children[i],d+1);
+        for(auto &i:root->children){
+            solve(i,d+1);
         }
         
     }
