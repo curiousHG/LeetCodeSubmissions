@@ -15,7 +15,6 @@ public:
         int j = 0;
         while(j<si){
             tank+=gas[j]-cost[j];
-            // cout<<tank<<" "<<j<<endl;
             if(tank<0)return -1;
             j++;
         }
