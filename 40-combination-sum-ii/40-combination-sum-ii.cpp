@@ -10,7 +10,7 @@ public:
         solve(temp, 0,0,ca);
         return ans;
     }
-    void solve(vector<int> temp, int sumi,int i,vector<int>& arr){
+    void solve(vector<int> &temp, int sumi,int i,vector<int>& arr){
         if(sumi>t)return;
         if(sumi==t){
             ans.push_back(temp);
