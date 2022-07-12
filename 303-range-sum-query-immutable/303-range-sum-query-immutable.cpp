@@ -1,6 +1,7 @@
 class NumArray {
-public:
+private:
     vector<int> pref;
+public:
     NumArray(vector<int>& nums) {
         int n = nums.size();
         pref = vector<int>(n+1,0);
