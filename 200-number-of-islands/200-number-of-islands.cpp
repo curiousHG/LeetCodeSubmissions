@@ -15,12 +15,8 @@ public:
         return c;
     }
     void bfs(int i,int j,vector<vector<char>>& grid,int n,int m){
-        if(i<0 || i>=n || j<0||j>=m)return;
-        if(grid[i][j]!='1'){
-            return;
-        }else{
-            grid[i][j]='2';
-        }
+        if(i<0 || i>=n || j<0||j>=m ||grid[i][j]!='1')return;
+        grid[i][j]='2';
         bfs(i+1,j,grid,n,m);
         bfs(i-1,j,grid,n,m);
         bfs(i,j-1,grid,n,m);
