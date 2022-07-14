@@ -12,7 +12,7 @@ public:
             }
             m[t].push_back(strs[i]);
         }
-        for(const auto& it:m){
+        for(const auto &it:m){
             ans.push_back(it.second);
         }
         return ans;
