@@ -19,7 +19,7 @@ public:
                 a[j]--;
                 ans++;
             }
-            for(int i:a)cout<<i<<" ";
+            // for(int i:a)cout<<i<<" ";
             cout<<endl;
         }
         return ans;
