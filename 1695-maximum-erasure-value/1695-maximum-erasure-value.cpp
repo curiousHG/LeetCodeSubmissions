@@ -1,5 +1,11 @@
+#pragma GCC optimize("O2")
 class Solution {
 public:
+    Solution(){
+        ios::sync_with_stdio(false);
+        cin.tie(0);
+        cout.tie(0);
+    }
     int maximumUniqueSubarray(vector<int>& nums) {
         unordered_map<int,int> m;
         int maxi = 0,n = nums.size(),st = -1;
