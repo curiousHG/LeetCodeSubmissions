@@ -4,6 +4,7 @@ public:
         sort(nums.begin(),nums.end());
         int diff = INT_MAX,n = nums.size(),ans;
         for(int i = 0;i+2<n;i++){
+            if(i>0 && nums[i-1]==nums[i])continue;
             int l= i+1, r = n-1,sum = nums[i]+nums[l]+nums[r];
             while(l<r){
                 sum = nums[i]+nums[l]+nums[r];
