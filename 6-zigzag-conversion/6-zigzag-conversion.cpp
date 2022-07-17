@@ -29,7 +29,7 @@ public:
         }
         string f = "";
         for(int i = 0;i<numr;i++){
-            cout<<ans[i]<<endl;
+            // cout<<ans[i]<<endl;
             f+=ans[i];
         }
         
