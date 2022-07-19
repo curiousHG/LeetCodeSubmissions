@@ -18,7 +18,7 @@ public:
         solve(root, t, s,0);
         return ans;
     }
-    void solve(TreeNode* root, int t,unordered_map<long,int> ss,long cur){
+    void solve(TreeNode* root, int t,unordered_map<long,int> &ss,long cur){
         
         if(!root)return;
         // cout<<root->val<<" "<<cur<<endl;
@@ -29,6 +29,7 @@ public:
         ss[sum]++;
         solve(root->left, t,ss,sum);
         solve(root->right, t, ss, sum);
+        ss[sum]--;
     }
     
 };
