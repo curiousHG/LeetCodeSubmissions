@@ -13,16 +13,16 @@ class Solution {
 public:
     int ans = 0;
     int pathSum(TreeNode* root, int t) {
-        unordered_map<long long,int> s;
+        unordered_map<long,int> s;
         s[0] = 1;
         solve(root, t, s,0);
         return ans;
     }
-    void solve(TreeNode* root, int t,unordered_map<long long,int> ss,long long cur){
+    void solve(TreeNode* root, int t,unordered_map<long,int> ss,long long cur){
         
         if(!root)return;
         // cout<<root->val<<" "<<cur<<endl;
-        long long sum = cur+root->val;
+        long sum = cur+root->val;
         if(ss.find(sum-t)!=ss.end()){
             ans+=ss[sum-t];
         }
