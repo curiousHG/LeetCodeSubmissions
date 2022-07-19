@@ -18,7 +18,7 @@ public:
         solve(root, t, s,0);
         return ans;
     }
-    void solve(TreeNode* root, int t,unordered_map<long,int> ss,long long cur){
+    void solve(TreeNode* root, int t,unordered_map<long,int> ss,long cur){
         
         if(!root)return;
         // cout<<root->val<<" "<<cur<<endl;
