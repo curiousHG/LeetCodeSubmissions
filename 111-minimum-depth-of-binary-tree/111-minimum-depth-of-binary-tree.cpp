@@ -11,8 +11,8 @@
  */
 class Solution {
 public:
-    int ans = INT_MAX;
     int minDepth(TreeNode* root) {
+        ios_base::sync_with_stdio(false);
         queue<pair<TreeNode*, int>> pq;
         if(!root)return 0;
         pq.push(make_pair(root, 1));
