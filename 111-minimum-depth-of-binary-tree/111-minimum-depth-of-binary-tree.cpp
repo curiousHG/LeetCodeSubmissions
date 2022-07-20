@@ -13,19 +13,19 @@ class Solution {
 public:
     int ans = INT_MAX;
     int minDepth(TreeNode* root) {
+        queue<pair<TreeNode*, int>> pq;
         if(!root)return 0;
-        solve(root, 1);
-        return ans;
-    }
-    void solve(TreeNode* root,int d){
-        if(!root)return;
-        if(!root->left && !root->right){
-            ans = min(ans,d);
-            return;
+        pq.push(make_pair(root, 1));
+        while(!pq.empty()){
+            pair<TreeNode*, int> a = pq.front();
+            pq.pop();
+            if(!a.first->left && !a.first->right){
+                return a.second;
+            }
+            if(a.first->left)pq.push(make_pair(a.first->left,a.second+1));
+            if(a.first->right)pq.push(make_pair(a.first->right,a.second+1));
         }
-        solve(root->left, d+1);
-        solve(root->right,d+1);
-        
-        
+        return 0;
     }
+    
 };
