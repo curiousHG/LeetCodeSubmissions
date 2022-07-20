@@ -13,6 +13,8 @@ class Solution {
 public:
     
     vector<int> preorderTraversal(TreeNode* root) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(0);
         vector<int> ans;
         solve(root,ans);
         return ans;
