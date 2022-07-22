@@ -2,14 +2,19 @@ class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
         ios::sync_with_stdio(0);
-        unordered_set<int> s;
-        for(int i= 0;i<nums.size();i++){
-            s.insert(nums[i]);
+        int n = nums.size();
+        vector<char> np(n+1,0);
+        for(auto k:nums){
+            if(k>0 && k<n+1){
+                np[k-1] = true;
+            }
         }
         
-        int i = 1;
-        while(s.find(i)!=s.end())i++;
-        return i;
+        for(int i=0;i<=n;i++){
+            if(!np[i])return i+1;
+        }
+        
+        return INT_MAX;
             
     }
 };
