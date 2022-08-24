@@ -11,7 +11,14 @@ public:
         return false;
         
     }
+    bool should_reverse(const string & word){
+        auto first_not_equal_to_front = word.find_first_not_of(word.front(), 1);
+        if (first_not_equal_to_front == std::string::npos) return false;
+        auto last_not_equal_to_back = word.find_last_not_of(word.back(), word.size() - 2);
+        return first_not_equal_to_front >= (word.size() - last_not_equal_to_back);
+    }
     bool exist(vector<vector<char>>& board, string word) {
+        if(should_reverse(word))reverse(word.begin(),word.end());
         for(int i = 0;i<board.size();i++){
             for(int j = 0;j<board[0].size();j++){
                 if(dfs(i, j, 0, word,board))return true;
