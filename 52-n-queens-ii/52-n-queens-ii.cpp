@@ -19,17 +19,13 @@ public:
         return true;
     }
     void solve(int i,int n, vector<string> &b){
-        if(i==n){
-            ans++;
-            return;
-        }
+        if(i==n){ans++;return;}
         for(int j = 0;j<n;j++){
-            if(safe(i,j,b)){
+            if(safe(i, j, b)){
                 b[i][j] = 'Q';
-                solve(i+1, n, b);
+                solve(i+1, n,b);
                 b[i][j] = '.';
             }
-
         }
     }
     int totalNQueens(int n) {
