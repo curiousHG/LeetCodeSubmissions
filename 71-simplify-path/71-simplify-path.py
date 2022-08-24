@@ -3,9 +3,9 @@ class Solution:
         ans = []
         for i in path.split('/'):
             if(i==".."):
-                if(len(ans)):
+                if(ans):
                     ans.pop()
-            elif(i==''or i=='.'):
+            elif(not i or  i=='.'):
                 continue
             else:
                 ans.append(i)
