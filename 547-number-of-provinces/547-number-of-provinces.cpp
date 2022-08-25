@@ -1,6 +1,5 @@
 class Solution {
 public:
-    vector<bool> vis;
     void mark(int j, vector<vector<int>>& isC,vector<bool> &vis){
         if(vis[j])return;
         vis[j] = true;
