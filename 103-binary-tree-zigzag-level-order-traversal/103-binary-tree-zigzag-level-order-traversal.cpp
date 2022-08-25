@@ -23,20 +23,12 @@ public:
             d = cur.second;
             que.pop();
             if(d==ans.size()){
-                if(d>0 && d%2==0){
-                    reverse(ans.back().begin(),ans.back().end());
-                // for(int j:ans.back())cout<<j<<" ";
-                // cout<<endl;
-                }
+                if(d>0 && d%2==0)reverse(ans.back().begin(),ans.back().end());
                 ans.push_back(vector<int>());
             }
             ans.back().push_back(n->val);
-            if(n->left){
-                que.push(make_pair(n->left,d+1));
-            }
-            if(cur.first->right){
-                que.push(make_pair(n->right,d+1));
-            }
+            if(n->left)que.push(make_pair(n->left,d+1));
+            if(cur.first->right)que.push(make_pair(n->right,d+1));
         }
         if(d%2==1)reverse(ans.back().begin(),ans.back().end());
         return ans;
