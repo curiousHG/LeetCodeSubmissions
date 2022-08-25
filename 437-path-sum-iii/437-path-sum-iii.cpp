@@ -9,27 +9,25 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+#define ll long
 class Solution {
 public:
     int ans = 0;
     int pathSum(TreeNode* root, int t) {
-        unordered_map<long,int> s;
-        s[0] = 1;
-        solve(root, t, s,0);
+        unordered_map<ll,int> m;
+        m[0] = 1;
+        solve(root, t, m,0);
         return ans;
     }
-    void solve(TreeNode* root, int t,unordered_map<long,int> &ss,long cur){
-        
+    void solve(TreeNode* root, int t, unordered_map<ll,int> m, ll cur){
         if(!root)return;
-        // cout<<root->val<<" "<<cur<<endl;
-        long sum = cur+root->val;
-        if(ss.find(sum-t)!=ss.end()){
-            ans+=ss[sum-t];
+        ll n = cur+root->val;
+        if(m.find(n-t)!=m.end()){
+            ans+=m[n-t];
         }
-        ss[sum]++;
-        solve(root->left, t,ss,sum);
-        solve(root->right, t, ss, sum);
-        ss[sum]--;
+        m[n]++;
+        solve(root->left,t,m, n);
+        solve(root->right,t,m, n);
+        
     }
-    
 };
