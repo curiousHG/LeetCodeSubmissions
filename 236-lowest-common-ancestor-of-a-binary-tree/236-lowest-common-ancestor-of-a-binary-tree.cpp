@@ -15,21 +15,14 @@ public:
         path(root, q, b);
         reverse(a.begin(),a.end());
         reverse(b.begin(),b.end());
-        // for(int i = 0;i<a.size();i++){
-        //     cout<<a[i]->val<<" ";
-        // }
-        // cout<<endl;
-        // for(int i = 0;i<b.size();i++){
-        //     cout<<b[i]->val<<" ";
-        // }
-        // cout<<endl;
-        for(int i= 0;i<min(a.size(),b.size());i++){
+        int n = a.size(),m = b.size();
+        for(int i= 0;i<min(n,m);i++){
             if(a[i]->val!=b[i]->val){
                 return a[i-1];
             }
         }
         // return 0;
-        return a.size()<b.size()?a[a.size()-1]:b[b.size()-1];
+        return n<m?a[n-1]:b[m-1];
     }
     bool path(TreeNode* root, TreeNode* n,vector<TreeNode*> &a){
         if(!root)return false;
