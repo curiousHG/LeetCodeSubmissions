@@ -30,6 +30,10 @@ public:
         int mini = 0;
         for(int i = 0;i<n;i++){
             for(int j = 0;j<m;j++){
+                // if(grid[i][j]!=0 && time[i][j]==INT_MAX){
+                //     cout<<i<<" "<<j<<" "<<time[i][j]<<endl;
+                //     return -1;
+                // }
                 if(grid[i][j]==0)continue;
                 if(grid[i][j]==1 && time[i][j]==INT_MAX)return -1;
                 mini = max(mini, time[i][j]);
