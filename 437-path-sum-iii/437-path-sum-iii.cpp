@@ -19,7 +19,7 @@ public:
         solve(root, t, m,0);
         return ans;
     }
-    void solve(TreeNode* root, int t, unordered_map<ll,int> m, ll cur){
+    void solve(TreeNode* root, int t, unordered_map<ll,int> &m, ll cur){
         if(!root)return;
         ll n = cur+root->val;
         if(m.find(n-t)!=m.end()){
@@ -28,6 +28,7 @@ public:
         m[n]++;
         solve(root->left,t,m, n);
         solve(root->right,t,m, n);
+        m[n]--;
         
         
     }
