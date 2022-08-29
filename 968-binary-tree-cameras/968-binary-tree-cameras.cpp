@@ -27,7 +27,7 @@ public:
         if(!root)return 0;
         if(check_leave(root))return -1;
         int l = solve(root->left), r = solve(root->right);
-        cout<<l<<" "<<r<<endl;
+        // cout<<l<<" "<<r<<endl;
         if(l==-1 || r==-1){
             ans++;
             return root->val = 2;
