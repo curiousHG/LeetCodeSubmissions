@@ -36,6 +36,7 @@ public:
 
             pq.pop();
             memo[n.i][n.j] = min(n.dis, memo[n.i][n.j]);
+            if(n.i==A-1 && n.j == B-1)return memo[n.i][n.j];
             for(auto &i : dir){
                 int x = n.i + i.second.first,y = n.j + i.second.second;
                 int extra = i.first == grid[n.i][n.j]?0:1;
