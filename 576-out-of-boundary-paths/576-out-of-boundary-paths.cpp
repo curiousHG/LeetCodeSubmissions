@@ -4,7 +4,7 @@ public:
     const int mod = 1e9+7;
     vector<int> dx = {1,0,0,-1}, dy = {0,1,-1,0}; 
     int m,n;
-    vector<vector<vector<int>>> memo;
+    int memo[52][52][52];
     int dp(int i, int j, int k){
         if(k<0)return 0;
         if(check(i,j))return 1;
@@ -20,7 +20,8 @@ public:
         return false;
     }
     int findPaths(int a, int b, int mm, int R, int C) {
-        memo.resize(a, vector<vector<int>>(b, vector<int>(mm+1,-1)));
+        memset(memo,-1,sizeof(memo));
+        // memo.resize(a, vector<vector<int>>(b, vector<int>(mm+1,-1)));
         m = a;
         n = b;
         return dp(R, C, mm);
