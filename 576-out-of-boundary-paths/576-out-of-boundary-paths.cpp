@@ -11,7 +11,7 @@ public:
         if(memo[i][j][k]!=-1)return memo[i][j][k];
         int val = 0;
         for(int l = 0;l<4;l++){
-            val = (val%mod+dp(i+dx[l], j+dy[l],k-1)%mod)%mod;
+            val = (val+dp(i+dx[l], j+dy[l],k-1))%mod;
         }
         return memo[i][j][k] = val;      
     }
