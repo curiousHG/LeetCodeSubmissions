@@ -15,7 +15,6 @@ public:
         for(int i =0;i<in.size();i++){
             if(in[i]==1)q.push(i);
         }
-        bool b = true;
         int k = n-1;
         while(!q.empty() && k>1){
             int s = q.size();
@@ -27,7 +26,6 @@ public:
                 for(int j:gr[t]){
                     if(in[j]>1){
                         in[j]--;
-                        b = false;
                         k--;
                     }
                     if(in[j]==1)q.push(j);
