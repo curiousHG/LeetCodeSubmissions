@@ -9,9 +9,11 @@ public:
         if(k<0)return 0;
         if(check(i,j))return 1;
         if(memo[i][j][k]!=-1)return memo[i][j][k];
-        long long val = ((dp(i-1, j,k-1)+dp(i+1, j, k-1))%mod+(dp(i, j+1, k-1)+dp(i, j-1, k-1))%mod)%mod;
-        memo[i][j][k] = val%mod;
-        return val;        
+        int val = 0;
+        for(int l = 0;l<4;l++){
+            val = (val%mod+dp(i+dx[l], j+dy[l],k-1)%mod)%mod;
+        }
+        return memo[i][j][k] = val;      
     }
     bool check(int i, int j){
         if(i<0 || j<0 || i>=m || j>=n)return true;
