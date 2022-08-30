@@ -9,7 +9,6 @@ public:
             if(j>i && ind[i]==ind[j])continue;
             swap(ind[i],ind[j]);
             solve(i+1,ind, ans);
-            // swap(ind[i],ind[j]);
         }
     }
     vector<vector<int>> permuteUnique(vector<int>& nums) {
