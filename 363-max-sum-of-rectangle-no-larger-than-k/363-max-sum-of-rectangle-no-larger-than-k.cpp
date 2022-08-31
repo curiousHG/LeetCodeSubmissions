@@ -26,6 +26,7 @@ public:
         for(int i = 0;i<n;i++){
             for(int j = i+1;j<=n;j++){
                 ans = max(ans, solve(i, j, pre, k, m));
+                if(ans==k)return ans;
             }
         }
         return ans;
