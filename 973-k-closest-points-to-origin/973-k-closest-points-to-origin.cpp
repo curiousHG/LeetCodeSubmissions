@@ -1,3 +1,8 @@
+static const auto init = []{
+    cin.tie(NULL);
+    ios::sync_with_stdio(false);
+    return false;
+}();
 class Solution {
 public:
     vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
