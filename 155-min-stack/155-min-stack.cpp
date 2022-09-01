@@ -6,11 +6,8 @@ public:
     }
     
     void push(int val) {
-        if(st.size()==0){
-            st.push(make_pair(val,val));
-        }else{
-            st.push(make_pair(val, min(st.top().second, val)));
-        }
+        if(st.size()==0)st.push(make_pair(val,val));
+        else st.push(make_pair(val, min(st.top().second, val)));
     }
     
     void pop() {
