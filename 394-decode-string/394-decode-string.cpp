@@ -24,17 +24,17 @@ public:
                     num = num*10+s[i]-'0';
                     i++;
                 }
-                l = i;
                 v++;
                 i++;
+                l = i;
                 while(i<n && v){
                     if(s[i]=='[')v++;
                     else if(s[i]==']')v--;
                     i++;
                 }
                 r = i-1;
-                string sub = s.substr(l+1, r-l-1);
-                cout<<sub<<endl;
+                string sub = s.substr(l, r-l);
+                // cout<<sub<<endl;
                 string temp = decodeString(sub);
                 for(int i = 0;i<num;i++){
                     ans+=temp;
