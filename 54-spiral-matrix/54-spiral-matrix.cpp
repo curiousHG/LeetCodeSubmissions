@@ -6,7 +6,6 @@ public:
         int i = 0,j = 0,r = m-1,d = n-1;
         while(j<m){
             ans.push_back(mat[i][j]);
-            cout<<i<<" "<<j<<endl;
             j++;
         }
         j--;
@@ -15,7 +14,6 @@ public:
         while(r>=0 && d>0){
             while(ki<d){
                 ans.push_back(mat[i][j]);
-                cout<<i<<" "<<j<<" "<<d<<" "<<r<<endl;
                 i+=diri;
                 ki++;
             }
@@ -23,7 +21,6 @@ public:
             j+=dirj;
             while(kj<r){
                 ans.push_back(mat[i][j]);
-                cout<<i<<" "<<j<<" "<<d<<" "<<r<<endl;
                 j+=dirj;
                 kj++;
             }
