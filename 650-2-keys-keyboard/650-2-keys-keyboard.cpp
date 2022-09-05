@@ -7,7 +7,7 @@ public:
             for(int j = 2;j*i<=n;j++){
                 dp[j*i] = min(dp[j*i],dp[i]+(j));
             }
-            cout<<dp[i]<<" ";
+            // cout<<dp[i]<<" ";
         }
         return dp[n];
     }
