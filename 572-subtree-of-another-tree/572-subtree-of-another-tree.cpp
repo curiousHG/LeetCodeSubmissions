@@ -18,14 +18,11 @@ public:
         else if(root1->val!=root2->val)return false;
         return check(root1->left, root2->left) && check(root1->right, root2->right);
     }
-    bool solve(TreeNode* root, TreeNode* sub){
+
+    bool isSubtree(TreeNode* root, TreeNode* sub) {
         if(check(root, sub))return true;
         if((root && !sub )|| (!root && sub))return false;
-        if(root)return solve(root->left, sub)||solve(root->right, sub);
+        if(root)return isSubtree(root->left, sub)||isSubtree(root->right, sub);
         return true;
-        
-    }
-    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        return solve(root, subRoot);
     }
 };
