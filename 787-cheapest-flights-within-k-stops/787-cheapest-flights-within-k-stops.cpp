@@ -27,7 +27,7 @@ public:
                         // cout<<next.f<<" ";
                     }
                 }
-                cout<<endl;
+                // cout<<endl;
             }
             dis = cur;
             k--;
