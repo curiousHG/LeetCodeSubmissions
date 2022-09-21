@@ -1,38 +1,41 @@
 class Solution {
 public:
     int ans = 0;
-    bool safe(int i,int j, vector<string> &b){
-        int n = b.size();
-        for(int k = 0;k<i;k++){
-            if(b[k][j]=='Q')return false;
+    vector<vector<bool>> bo;
+    bool noclash(int i, int j,int n){
+        for(int k = 0;k<=i;k++){
+            if(bo[i-k][j])return false;
+
         }
-        int r = i,c = j;
-        while(r>=0 && c>=0){
-            if(b[r][c]=='Q')return false;
-            r--;c--;
+        for(int k = 0;k<=min(i,j);k++){
+            if(bo[i-k][j-k])return false;
         }
-        r = i,c = j;
-        while(r>=0 && c<n){
-            if(b[r][c]=='Q')return false;
-            r--;c++;
+        while(i>=0 && j<n){
+            if(bo[i][j])return false;
+            i--;j++;
         }
         return true;
     }
-    void solve(int i,int n, vector<string> &b){
-        if(i==n){ans++;return;}
+    void solve(int i,int n){
+        if(i==n){
+            ans++;
+            return;
+        }
         for(int j = 0;j<n;j++){
-            if(safe(i, j, b)){
-                b[i][j] = 'Q';
-                solve(i+1, n,b);
-                b[i][j] = '.';
+            bool b = noclash(i, j,n);
+            // cout<<i<<" "<<j<<" "<<b<<endl;
+            if(b){
+                bo[i][j] = true;
+                solve(i+1, n);
+                bo[i][j] = false;
             }
         }
+
     }
     int totalNQueens(int n) {
-        ans = 0;
-        vector<string> b(n,string(n,'.'));
-        solve(0,n, b);
+        bo.resize(n, vector<bool>(n,false));
+        solve(0,n);
         return ans;
+        
     }
-
 };
