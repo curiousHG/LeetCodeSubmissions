@@ -19,7 +19,7 @@ public:
         
     }
     int minimumEffortPath(vector<vector<int>>& hei) {
-        int l = 0,h = INT_MAX, mid;
+        int l = 0,h = 1e6+7, mid;
         while(l<h){
             mid = l+ (h-l)/2;
             if(poss(mid, hei)){
