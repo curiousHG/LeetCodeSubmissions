@@ -1,6 +1,9 @@
 class Solution {
 public:
-    void dfs(string item,map<string, vector<string>> &pair,map<string, bool> &poss, unordered_set<string> &st){
+    unordered_map<string, vector<string>> pair;
+    unordered_map<string,bool> poss;
+    unordered_set<string> st;
+    void dfs(string item){
         if(poss.find(item)!=poss.end())return;
         if(pair.find(item)==pair.end())return;
         bool ip = true;
@@ -10,26 +13,17 @@ public:
                 break;
             }
             st.insert(s);
-            dfs(s, pair, poss,st);
+            dfs(s);
             st.erase(s);
-            // cout<<item<<endl;
-            // cout<<s<<"|";
             if(poss.find(s)==poss.end()){
-                // cout<<"Break->"<<s<<endl;
                 ip = false;
                 break;
             }
             
         }
-        // cout<<endl;
-        if(ip){
-            poss[item] = true;
-        }
+        if(ip)poss[item] = true;
     }
     vector<string> findAllRecipes(vector<string>& rec, vector<vector<string>>& ing, vector<string>& sup) {
-        map<string, vector<string>> pair;
-        map<string,bool> poss;
-        unordered_set<string> st;
         int n = rec.size(),m = sup.size();
         for(int i = 0;i<n;i++){
             if(pair.find(rec[i])==pair.end()){
@@ -41,7 +35,7 @@ public:
         for(int i = 0;i<m;i++)poss[sup[i]] = true;
         vector<string> ans;
         for(string s:rec){
-            dfs(s, pair, poss,st);
+            dfs(s);
             if(poss.find(s)!=poss.end())ans.push_back(s);
         }
         return ans;
