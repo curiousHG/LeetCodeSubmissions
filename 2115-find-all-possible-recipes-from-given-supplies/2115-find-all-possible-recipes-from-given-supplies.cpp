@@ -1,7 +1,7 @@
 class Solution {
 public:
     unordered_map<string, vector<string>> pair;
-    unordered_map<string,bool> poss;
+    unordered_set<string> poss;
     unordered_set<string> st;
     void dfs(string item){
         if(poss.find(item)!=poss.end())return;
@@ -21,7 +21,7 @@ public:
             }
             
         }
-        if(ip)poss[item] = true;
+        if(ip)poss.insert(item);
     }
     vector<string> findAllRecipes(vector<string>& rec, vector<vector<string>>& ing, vector<string>& sup) {
         int n = rec.size(),m = sup.size();
@@ -32,7 +32,7 @@ public:
             }
             for(string s:ing[i])pair[rec[i]].push_back(s);
         }
-        for(int i = 0;i<m;i++)poss[sup[i]] = true;
+        for(int i = 0;i<m;i++)poss.insert(sup[i]);
         vector<string> ans;
         for(string s:rec){
             dfs(s);
