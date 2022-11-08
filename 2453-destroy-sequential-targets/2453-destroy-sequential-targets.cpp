@@ -10,10 +10,8 @@ public:
         for(auto it = mp.begin();it!=mp.end();it++){
             int v = (*it).first;
             vector<int> k = (*it).second;
-            cout<<v<<" "<<k.size()<<endl;
-            if(k.size()>m){
-                ans = INT_MAX;
-            }
+            // cout<<v<<" "<<k.size()<<endl;
+            if(k.size()>m)ans = INT_MAX;
             if(k.size()>=m){
                 m = k.size();
                 for(int i:k)ans = min(ans, i);
