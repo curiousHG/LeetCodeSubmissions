@@ -7,13 +7,12 @@ public:
         
     }
     int countOrders(int n) {
-        vector<ll> dp(n+2,0ll);
-        dp[1] = 1;
+        ll prev = 1;
         for(int i = 2;i<=n;i++){
-            dp[i] = cor(2*(i-1))*dp[i-1];
-            dp[i]%=mod;
+            prev = cor(2*(i-1))*prev;
+            prev%=mod;
         }
-        return dp[n];
+        return prev;
         
     }
 };
